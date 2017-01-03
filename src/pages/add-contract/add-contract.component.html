@@ -11,6 +11,23 @@
   </ion-navbar>
 
 </ion-header>
-<ion-content padding>
-
+<ion-content class="page-add-contract" padding>
+<form [formGroup]="addContractForm">
+  <ion-item>
+    <ion-label floating>Name</ion-label>
+    <ion-input type="text" formControlName="Name"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>Amount</ion-label>
+    <ion-input type="text" formControlName="Amount"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>Group</ion-label>
+    <ion-input type="text" formControlName="Group"></ion-input>
+  </ion-item>
+</form>
+  <button ion-button block margin-top color="primary" (click)="addContract()">Create new item!</button>
 </ion-content>
+<ion-footer>
+
+</ion-footer>

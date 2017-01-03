@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 
 /*
   Generated class for the AddContract page.
@@ -13,10 +14,34 @@ import { NavController } from 'ionic-angular';
 })
 export class AddContractComponent {
 
-  constructor(public navCtrl: NavController) {}
+  addContractForm : FormGroup;
 
-  ionViewDidLoad() {
-    console.log('Hello AddContractPage Page');
+  constructor(public navCtrl: NavController,
+              public formBuilder : FormBuilder) {
+    this.addContractForm = formBuilder.group({
+      Name : [''],
+      Amount: [''],
+      Group: ['']
+    })
   }
+
+  //View Lifecycle Events
+  ionViewDidEnter() {
+    this.subcribeToFormChanges();
+  }
+
+
+  //Custom functions
+  subcribeToFormChanges() {
+      // initialize stream
+      const myFormValueChanges$ = this.addContractForm.valueChanges;
+
+      // subscribe to the stream
+      myFormValueChanges$.subscribe(
+        x => console.log(x)
+      );
+  }
+
+
 
 }
