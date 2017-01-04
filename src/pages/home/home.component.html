@@ -4,11 +4,27 @@
   </ion-navbar>
 </ion-header>
 <ion-content class="home">
-  <ion-list>
-    <ion-item *ngFor="let contract of contracts">
-      {{contract.name}}
-    </ion-item>
-  </ion-list>
+  <div >
+    <ion-list *ngIf="aContracts.length > 0">
+      <ion-item *ngFor="let contract of aContracts">
+        {{contract.name}}
+        <div item-right>
+          {{contract.amount}}
+        </div>
+      </ion-item>
+    </ion-list>
+  </div>
+  <div *ngIf="aContracts.length <= 0">
+    <div class="noContractsPlaceholder">
+      <h3>No contracts yet</h3>
+    </div>
+  </div>
+  <div *ngIf="aContracts.length <= 0">
+    <div class="arrowRightDownContainer">
+      <h3>Add one here!</h3><br />
+      <img src="assets/images/arrow_right_down.png" width="50%" height="auto" ion-fixed />
+    </div>
+  </div>
   <ion-fab bottom right>
     <button ion-fab color="primary" (click)="goAddPage()"><ion-icon ios="md-add" md="md-add" name="add"></ion-icon></button>
   </ion-fab>

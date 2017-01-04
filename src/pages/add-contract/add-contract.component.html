@@ -12,21 +12,24 @@
 
 </ion-header>
 <ion-content class="page-add-contract" padding>
-<form [formGroup]="addContractForm">
+<form [formGroup]="addContractForm" (ngSubmit)="addContract(addContractForm)">
   <ion-item>
-    <ion-label floating>Name</ion-label>
-    <ion-input type="text" formControlName="Name"></ion-input>
+    <ion-label>Name</ion-label>
+    <ion-input type="text" formControlName="name"></ion-input>
   </ion-item>
   <ion-item>
-    <ion-label floating>Amount</ion-label>
-    <ion-input type="text" formControlName="Amount"></ion-input>
+    <ion-label>Amount</ion-label>
+    <ion-input type="number" formControlName="amount"></ion-input>
   </ion-item>
   <ion-item>
-    <ion-label floating>Group</ion-label>
-    <ion-input type="text" formControlName="Group"></ion-input>
+    <ion-label>Group</ion-label>
+    <ion-select formControlName="group">
+      <ion-option value="{{group}}" *ngFor="let group of aGroups">{{group}}</ion-option>
+    </ion-select>
   </ion-item>
+  <button ion-button block margin-top color="primary" type="submit">Create new item!</button>
 </form>
-  <button ion-button block margin-top color="primary" (click)="addContract()">Create new item!</button>
+
 </ion-content>
 <ion-footer>
 

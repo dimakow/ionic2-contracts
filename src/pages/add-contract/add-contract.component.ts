@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, AlertController } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
-
+import {ContractService} from '../../providers/contractService';
 /*
   Generated class for the AddContract page.
 
@@ -15,32 +15,74 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 export class AddContractComponent {
 
   addContractForm : FormGroup;
+  aGroups: String[];
 
-  constructor(public navCtrl: NavController,
-              public formBuilder : FormBuilder) {
+  constructor(private navCtrl: NavController,
+              private contractService: ContractService,
+              private alertCtrl: AlertController,
+              private formBuilder : FormBuilder) {
+
+    this.aGroups = ['Group1','Group2'];
     this.addContractForm = formBuilder.group({
-      Name : [''],
-      Amount: [''],
-      Group: ['']
+      name : [''],
+      amount: [''],
+      group: ['']
     })
   }
 
   //View Lifecycle Events
   ionViewDidEnter() {
-    this.subcribeToFormChanges();
+    //this.subcribeToFormChanges();
+  }
+  ionViewCanLeave() {
+    if(this.addContractForm.touched){
+      let alert = this.alertCtrl.create({
+        title: 'Unsaved Changes',
+        message: 'You have made some changes that were not yet saved! Save them now?',
+        buttons: [
+          {
+            text: 'OK',
+            handler: () => {
+              this.addContractForm.reset();
+              this.navCtrl.pop();
+            }
+          },
+          {
+            text: 'Cancel',
+            role: 'cancel'
+          }
+        ]
+      });
+      alert.present();
+      return false;
+    }
+    else{
+      return true;
+    }
   }
 
+  addContract(oForm) {
+    console.log(oForm);
+
+    this.contractService.addContract(
+      oForm.value.name,
+      oForm.value.amount,
+      oForm.value.group,
+    )
+    this.addContractForm.reset();
+  }
 
   //Custom functions
+  /*
   subcribeToFormChanges() {
       // initialize stream
-      const myFormValueChanges$ = this.addContractForm.valueChanges;
+      const oFormChanges = this.addContractForm.valueChanges;
 
       // subscribe to the stream
-      myFormValueChanges$.subscribe(
-        x => console.log(x)
+      oFormChanges.subscribe((x) => {console.log(this)}
+
       );
-  }
+  }*/
 
 
 

@@ -4,7 +4,7 @@ import { ContractAppComponent } from './app.component';
 import { HomeComponent } from '../pages/home/home.component';
 import { AddContractComponent } from '../pages/add-contract/add-contract.component';
 import { DetailComponent } from '../pages/detail/detail.component';
-import { DataService} from '../shared/index';
+import { ContractService} from '../providers/contractService';
 
 @NgModule({
   declarations: [
@@ -23,6 +23,6 @@ import { DataService} from '../shared/index';
     AddContractComponent,
     DetailComponent
   ],
-  providers: [DataService]
+  providers: [ContractService]
 })
 export class AppModule {}
