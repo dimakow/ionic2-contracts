@@ -26,6 +26,8 @@ export class AddContractComponent {
     this.addContractForm = formBuilder.group({
       name : [''],
       amount: [''],
+      currency: [''],
+      paymentCycle: [''],
       group: ['']
     })
   }
@@ -62,14 +64,15 @@ export class AddContractComponent {
   }
 
   addContract(oForm) {
-    console.log(oForm);
-
     this.contractService.addContract(
       oForm.value.name,
       oForm.value.amount,
+      oForm.value.currency,
+      oForm.value.paymentCycle,
       oForm.value.group,
     )
     this.addContractForm.reset();
+    this.navCtrl.pop();
   }
 
   //Custom functions

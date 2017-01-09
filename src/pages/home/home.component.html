@@ -1,6 +1,11 @@
 <ion-header>
   <ion-navbar>
     <ion-title>My Contracts</ion-title>
+    <ion-buttons end>
+      <button ion-button menuToggle (click)="openModal()" color="dark">
+          <ion-icon name="md-create"></ion-icon>
+        </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 <ion-content class="home">
@@ -11,6 +16,9 @@
         <div item-right>
           {{contract.amount}}
         </div>
+        <div item-right>
+          {{contract.currency}}
+        </div>
       </ion-item>
     </ion-list>
   </div>
@@ -19,13 +27,57 @@
       <h3>No contracts yet</h3>
     </div>
   </div>
-  <div *ngIf="aContracts.length <= 0">
-    <div class="arrowRightDownContainer">
-      <h3>Add one here!</h3><br />
-      <img src="assets/images/arrow_right_down.png" width="50%" height="auto" ion-fixed />
-    </div>
+  <div ion-fixed *ngIf="aContracts.length <= 0" class="addContractsLabel">
+      <h3>Add one here!</h3>
+  </div>
+  <div ion-fixed *ngIf="aContracts.length <= 0" class="addContractsImg">
+    <img src="assets/images/arrow_right_down.png" width="50%" height="auto"/>
   </div>
   <ion-fab bottom right>
     <button ion-fab color="primary" (click)="goAddPage()"><ion-icon ios="md-add" md="md-add" name="add"></ion-icon></button>
   </ion-fab>
 </ion-content>
+<ion-footer>
+  <ion-navbar>
+    <!--
+    <ion-grid>
+      <ion-row>
+        <ion-col width-33><button ion-button><ion-icon name="photos">Contracts</ion-icon></button></ion-col>
+        <ion-col width-33>Graphs</ion-col>
+        <ion-col width-33>Settings</ion-col>
+      </ion-row>
+    </ion-grid>
+    -->
+    <ion-grid class="bottomBar">
+      <ion-row center>
+        <ion-col width-33 class="ionCol">
+          <button ion-button class="navButton">
+            <div>
+              <ion-icon name="photos"></ion-icon>
+              <br />
+              Contracts
+            </div>
+          </button>
+        </ion-col>
+        <ion-col width-33>
+          <button ion-button color="light" class="navButton">
+            <div>
+              <ion-icon name="podium"></ion-icon>
+              <br />
+              Graph
+            </div>
+          </button>
+        </ion-col>
+        <ion-col width-33>
+          <button ion-button color="light" class="navButton">
+            <div>
+              <ion-icon name="settings"></ion-icon>
+              <br />
+              Settings
+            </div>
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-navbar>
+</ion-footer>

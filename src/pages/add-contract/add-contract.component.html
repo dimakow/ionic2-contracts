@@ -22,6 +22,21 @@
     <ion-input type="number" formControlName="amount"></ion-input>
   </ion-item>
   <ion-item>
+    <ion-label>Currency</ion-label>
+    <ion-select formControlName="currency">
+      <ion-option value="EUR">EUR</ion-option>
+      <ion-option value="USD">USD</ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label>Payment cycle</ion-label>
+    <ion-select formControlName="paymentCycle">
+      <ion-option value="weekly">Weekly</ion-option>
+      <ion-option value="monthly">Monthly</ion-option>
+      <ion-option value="yearly">Yearly</ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
     <ion-label>Group</ion-label>
     <ion-select formControlName="group">
       <ion-option value="{{group}}" *ngFor="let group of aGroups">{{group}}</ion-option>
