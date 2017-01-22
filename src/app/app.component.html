@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>My Contracts</ion-title>
+    <ion-buttons end>
+      <button ion-button menuToggle (click)="openModal()" color="dark">
+          <ion-icon name="md-create"></ion-icon>
+        </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-tabs>
+    <ion-tab [root]="contractOverview" tabTitle="Contracts" tabIcon="list"></ion-tab>
+    <ion-tab [root]="graph" tabTitle="Graphics" tabIcon="podium"></ion-tab>
+    <ion-tab [root]="settings" tabTitle="Settings" tabIcon="cog"></ion-tab>
+  </ion-tabs>
+</ion-content>

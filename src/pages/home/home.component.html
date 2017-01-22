@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar *navbar>
     <ion-title>My Contracts</ion-title>
     <ion-buttons end>
       <button ion-button menuToggle (click)="openModal()" color="dark">
@@ -36,10 +36,13 @@
   <ion-fab bottom right>
     <button ion-fab color="primary" (click)="goAddPage()"><ion-icon ios="md-add" md="md-add" name="add"></ion-icon></button>
   </ion-fab>
+
 </ion-content>
 <ion-footer>
-  <ion-navbar>
+
     <!--
+
+
     <ion-grid>
       <ion-row>
         <ion-col width-33><button ion-button><ion-icon name="photos">Contracts</ion-icon></button></ion-col>
@@ -47,7 +50,7 @@
         <ion-col width-33>Settings</ion-col>
       </ion-row>
     </ion-grid>
-    -->
+
     <ion-grid class="bottomBar">
       <ion-row center>
         <ion-col width-33 class="ionCol">
@@ -79,5 +82,5 @@
         </ion-col>
       </ion-row>
     </ion-grid>
-  </ion-navbar>
+  </ion-navbar>-->
 </ion-footer>
