@@ -1,0 +1,36 @@
+.noContractsPlaceholder{
+  width: 50%;
+  text-align: center;
+  position:absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.addContractsLabel{
+  bottom: 10%;
+  left: 50%;
+  transform: translate(-50%, -90%)
+}
+.addContractsImg{
+  width: 50%;
+  right: 20%;
+  bottom: 10px;
+  text-align: right;
+
+}
+.bottomBar{
+  padding: 0;
+  ion-col {
+    padding: 0;
+    text-align: center
+  }
+  .button-ios-light{
+    background-color: $toolbar-background;
+  }
+  .navButtonSelected{
+    color: color($colors, primary)
+  }
+  .navButtonUnselected{
+    color: black
+  }
+}

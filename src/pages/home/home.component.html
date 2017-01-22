@@ -51,7 +51,7 @@
     <ion-grid class="bottomBar">
       <ion-row center>
         <ion-col width-33 class="ionCol">
-          <button ion-button class="navButton">
+          <button ion-button [ngClass]="{navButtonSelected: selectedTab === 'contracts'}" color="light" (click)="goContracts()">
             <div>
               <ion-icon name="photos"></ion-icon>
               <br />
@@ -60,7 +60,7 @@
           </button>
         </ion-col>
         <ion-col width-33>
-          <button ion-button color="light" class="navButton">
+          <button ion-button color="light" [ngClass]="{navButtonSelected: selectedTab === 'graph'}" (click)="goGraph()">
             <div>
               <ion-icon name="podium"></ion-icon>
               <br />
@@ -69,7 +69,7 @@
           </button>
         </ion-col>
         <ion-col width-33>
-          <button ion-button color="light" class="navButton">
+          <button ion-button color="light" [ngClass]="{navButtonSelected: selectedTab === 'settings'}" (click)="goSettings()">
             <div>
               <ion-icon name="settings"></ion-icon>
               <br />
